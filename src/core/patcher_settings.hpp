@@ -7,6 +7,7 @@ struct patcher_settings
 {
 	std::string cache_folder;
 	std::string output_prefix;
+	std::string output;
 	
 	bool force;
 	bool remove_cache;
@@ -17,7 +18,7 @@ struct patcher_settings
 
 inline patcher_settings& patcher_settings::empty()
 {
-	static patcher_settings _{"cache", ".patcher.jar", true, true, false};
+	static patcher_settings _{"cache", ".patcher.jar","result", true, true, false};
 	return _;
 }
 

@@ -53,7 +53,7 @@ bool io::copy_file(const std::string& source, const std::string& destination, bo
         return false;
     }
 }
-//
+
 bool io::create_parent_dirs(const std::string& filepath)
 {
     std::filesystem::path path(filepath);
@@ -363,7 +363,7 @@ void patcher_core::create_patched_archive(const std::string& cache_folder,
     const std::string& name_input) const
 {
     using namespace io;
-    const std::string output_name = name_input + settings.output_prefix;
+    const std::string output_name = settings.output + settings.output_prefix;
     debug("Creating patched archive: " + output_name + " from folder: " + cache_folder);
 
     create_zip_from_folder(cache_folder, output_name);

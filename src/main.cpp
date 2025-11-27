@@ -2,13 +2,16 @@
 #include "utils/string_utils.h"
 #include <iostream>
 
-int execute(int argc, char** argv) {
+int execute(int argc, char** argv) 
+{
 	patcher_settings settings;
+
 	settings.cache_folder = NULL_OR(get_splits_argument(SET_PROGRAM_ARGUMENTS, "cache_folder", '='), "cache");
 	settings.output_prefix = NULL_OR(get_splits_argument(SET_PROGRAM_ARGUMENTS, "output_prefix", '='), ".patch.jar");
 	settings.remove_cache = has_argument(SET_PROGRAM_ARGUMENTS, "--cleanup");
 	settings.debug = has_argument(SET_PROGRAM_ARGUMENTS, "--debug");
 	settings.force = has_argument(SET_PROGRAM_ARGUMENTS, "--force");
+	settings.output = NULL_OR(get_splits_argument(SET_PROGRAM_ARGUMENTS, "output", '='), "result");
 
 	auto files = get_array_splits_args(SET_PROGRAM_ARGUMENTS, "jar", '=');
 	auto input = get_splits_argument(SET_PROGRAM_ARGUMENTS, "input", '=');
